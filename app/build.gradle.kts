@@ -8,6 +8,10 @@ android {
     namespace = "com.example.reddittopposts"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.reddittopposts"
         minSdk = 24
@@ -48,6 +52,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
     ksp(libs.compiler)
     implementation(libs.glide)
     implementation(libs.retrofit)
@@ -67,7 +73,10 @@ dependencies {
     implementation(libs.androidx.cardview)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.paging.compose)
+    implementation(libs.picasso)
+
     testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
