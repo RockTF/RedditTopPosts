@@ -5,5 +5,6 @@ data class RedditPost(
     val createdUtc: Long,
     val thumbnail: String?,
     val numComments: Int,
-    val url: String
+    val url: String,
+    val title: String
 )

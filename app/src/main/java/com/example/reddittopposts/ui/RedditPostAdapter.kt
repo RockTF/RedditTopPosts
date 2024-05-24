@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.example.redditclient.ui.viewholder.PostViewHolder
-import com.example.reddittopposts.MainActivity
 import com.example.reddittopposts.databinding.PostItemBinding
 import com.example.reddittopposts.model.RedditPost
+import com.example.reddittopposts.MainActivity
+import com.example.reddittopposts.util.PostViewHolder
 
 class PostsAdapter(private val activity: MainActivity) : ListAdapter<RedditPost, PostViewHolder>(DiffCallback) {
 

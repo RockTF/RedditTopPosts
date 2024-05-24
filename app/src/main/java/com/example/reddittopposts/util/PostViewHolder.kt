@@ -1,6 +1,8 @@
-package com.example.redditclient.ui.viewholder
+package com.example.reddittopposts.util
 
-import android.view.View
+import android.annotation.SuppressLint
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.reddittopposts.databinding.PostItemBinding
 import com.example.reddittopposts.model.RedditPost
@@ -15,6 +17,8 @@ class PostViewHolder(
     private val onImageLongClick: (String) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
+    @RequiresApi(Build.VERSION_CODES.Q)
+    @SuppressLint("SetTextI18n")
     fun bind(post: RedditPost) {
         binding.author.text = post.author
         binding.postDate.text = "Posted ${formatRelativeDate(post.createdUtc)}"
@@ -26,7 +30,7 @@ class PostViewHolder(
         }
 
         binding.thumbnail.setOnLongClickListener {
-            onImageLongClick(post.url)
+            ImageSaver.saveImageToGallery(binding.root.context, post.url, "Reddit Post")
             true
         }
     }
@@ -37,3 +41,4 @@ class PostViewHolder(
         return format.format(date)
     }
 }
+
