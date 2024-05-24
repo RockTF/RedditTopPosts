@@ -17,7 +17,6 @@ class PostViewHolder(
     private val onImageLongClick: (String) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     @SuppressLint("SetTextI18n")
     fun bind(post: RedditPost) {
         binding.author.text = post.author
@@ -30,7 +29,7 @@ class PostViewHolder(
         }
 
         binding.thumbnail.setOnLongClickListener {
-            ImageSaver.saveImageToGallery(binding.root.context, post.url, "Reddit Post")
+            onImageLongClick(post.url)
             true
         }
     }
