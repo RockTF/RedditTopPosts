@@ -11,14 +11,14 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class PostViewHolder(
+open class PostViewHolder(
     private val binding: PostItemBinding,
     private val onImageClick: (String) -> Unit,
     private val onImageLongClick: (String) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     @SuppressLint("SetTextI18n")
-    fun bind(post: RedditPost) {
+    open fun bind(post: RedditPost) {
         binding.author.text = post.author
         binding.postDate.text = "Posted ${formatRelativeDate(post.createdUtc)}"
         Picasso.get().load(post.thumbnail).into(binding.thumbnail)

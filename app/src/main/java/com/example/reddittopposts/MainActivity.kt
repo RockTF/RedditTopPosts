@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), IPostActions {
         }
 
         savedInstanceState?.let { bundle ->
-            val state = bundle.getParcelable<Parcelable>("recyclerViewState") // Устаревший метод
+            val state = bundle.getParcelable<Parcelable>("recyclerViewState")
             state?.let {
                 binding.recyclerView.layoutManager?.onRestoreInstanceState(it)
             }
